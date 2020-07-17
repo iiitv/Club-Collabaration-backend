@@ -5,6 +5,9 @@ var bodyParser = require("body-parser");
 //mongodb packages
 var mongoose = require("mongoose");
 
+//routes
+const usersRoutes = require('./routes/users-routes');
+
 //passport packages
 var LocalStrategy = require("passport-local");
 var passport = require("passport");
@@ -53,6 +56,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/", usersRoutes);
 
 //get requests
 app.get("/checkAuthentication", isLoggedIn, (req, res){
