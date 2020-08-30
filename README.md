@@ -17,5 +17,5 @@ yarn install
 ## Running
 
 ```bash
-node app.js
+yarn start
 ```
