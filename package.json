@@ -1,0 +1,19 @@
+{
+  "name": "club-collabaration-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/iiitv/Club-Collabaration-backend",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "mongoose": "^5.10.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "yarn.lock": "^0.0.1-security"
+  }
+}
