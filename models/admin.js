@@ -1,15 +1,4 @@
-var mongoose = require("mongoose");
-var passportLocalMongoose = require("passport-local-mongoose");
-
-var AdminSchema = new mongoose.Schema({
-  username: String,
-  name: String,
-  gender: String,
-  email: String,
-  mobile: Number,
-  password: String
-});
-
-AdminSchema.plugin(passportLocalMongoose);
-
+const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
+const AdminSchema = require("./Schema");
 module.exports = mongoose.model("Admin", AdminSchema);
