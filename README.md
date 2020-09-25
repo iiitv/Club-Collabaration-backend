@@ -25,10 +25,12 @@ yarn start
 ## DEPLOYMENT
 
 ```
-The follwing are the routes that are available
+The app is deployed at  https://club-collab.herokuapp.com
 
-## GET https://club-collab.herokuapp.com/users this gives all the register users
-## POST https://club-collab.herokuapp.com/signup this is post request
+The following are the routes that are available
+
+## GET https://club-collab.herokuapp.com/users
+## POST https://club-collab.herokuapp.com/signup
 
        the body must include
         {
@@ -44,13 +46,13 @@ The follwing are the routes that are available
 
          }
 
-##POST https://club-collab.herokuapp.com/login this is post request
+##POST https://club-collab.herokuapp.com/login
 
-the body must include
-{
-email: valid one
-password:(min length:6)
-}
+The body must include
+    {
+        email:
+        password:
+    }
 
 
 ```
