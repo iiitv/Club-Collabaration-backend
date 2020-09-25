@@ -1,8 +1,14 @@
 const Users = require("../models/user");
 const bcrypt = require("bcrypt");
-const { use } = require("../routes/users-routes");
+
+const { checkErrors, checkUserExist } = require("../utils/auth");
+
 const signUp = async (req, res) => {
   const { name, email, password } = req.body;
+  const errors = checkErrors(req.body);
+  const user = await checkUserExist(email);
+  if (errors) return res.status(300).send(errors);
+  if (user) return res.status(400).send("The user with email allready exists");
   try {
     const user = await Users.create({
       name,
@@ -11,7 +17,6 @@ const signUp = async (req, res) => {
     });
     res.status(200).send(user);
   } catch (error) {
-    console.log(error);
     res.status(400).send(error.message);
   }
 };
@@ -42,6 +47,10 @@ const userLogin = async (req, res) => {
     res.status(400).send(error.message);
   }
 };
+const handleNotFound = (req, res) => {
+  res.status(404).send("sorry this page doeesn't exist");
+};
 module.exports.signUp = signUp;
 module.exports.userLogin = userLogin;
 module.exports.getAllUsers = getAllUsers;
+module.exports.handleNotFound = handleNotFound;
