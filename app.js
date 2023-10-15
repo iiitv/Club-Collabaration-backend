@@ -23,7 +23,7 @@ mongoose
     (err) => console.log('Error connecting to DB', err)
   )
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use(require("express-session")({
   secret: process.env.SESSION_SECRET,

@@ -22,7 +22,15 @@ var AccountSchema = new mongoose.Schema({
     type:Boolean,
     default:false
   }
-});
+})
+
+AccountSchema.set("toJSON",{
+  transform:(doc,ret)=>{
+    ret.id = ret._id
+    delete ret._id
+    delete ret.__v
+  }
+})
 
 AccountSchema.plugin(passportLocalMongoose,{usernameField: 'email'})
 
