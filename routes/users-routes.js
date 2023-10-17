@@ -49,6 +49,15 @@ router.post('/login', function (req, res, next) {
   })(req, res, next)
 })
 
+router.post('/logout', function (req, res, next) {
+  req.logout();
+  req.session.destroy(() => {
+    res.status(200)
+      .clearCookie('connect.sid', { path: '/' })
+      .json({ status: "Success" });
+  })
+})
+
 router.get("/profile", isLoggedIn, (req, res) => {
   res.status(200).json(
     req.user
