@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const usersRoutes = require('./routes/users-routes');
-const {Account} = require("./models/Account");
+const {Account} = require("./models/index");
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
