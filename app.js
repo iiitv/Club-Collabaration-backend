@@ -11,10 +11,16 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 //Connecting to mongodb server and storing ip_data
-mongoose.connect(process.env.MONGODB_URI, {}).then(
-  () => console.log("DB connection success"),
-  (err) => console.log("Error connecting to DB", err)
-);
+mongoose
+  .connect(process.env.MONGODB_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+  .then(
+    () => console.log('DB connection success'),
+    (err) => console.log('Error connecting to DB', err)
+  )
 
 app.use(express.json());
 
